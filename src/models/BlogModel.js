@@ -11,6 +11,7 @@
 */
 
 const mongoose = require("mongoose");
+const { commentSchema } = require("./CommentSchema.js");
 
 const blogSchema = mongoose.Schema({
 	title: {
@@ -44,6 +45,10 @@ const blogSchema = mongoose.Schema({
 	},
 	editHistory: {
 		type: [{user: String, timestamp: Date}],
+		required: false
+	},
+	comments: {
+		type: [commentSchema],
 		required: false
 	}
 },
